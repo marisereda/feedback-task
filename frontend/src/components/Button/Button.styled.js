@@ -1,6 +1,10 @@
-import styled from "styled-components";
-
-export const Button = styled.button`
+import styled, { keyframes } from "styled-components";
+import { ImSpinner9 } from "react-icons/im";
+export const StyledButton = styled.button`
+  display: flex;
+  align-items: center;
+  gap: 1em;
+  min-width: 218px;
   padding: 28px 52px;
   font-family: "Apercu Arabic Pro";
   font-size: 18px;
@@ -23,4 +27,22 @@ export const Button = styled.button`
     transform: translateY(0);
     box-shadow: none;
   }
+
+  :disabled {
+    transform: translateY(0);
+    box-shadow: none;
+    opacity: 0.8;
+  }
+`;
+
+const rotate = keyframes`
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }`;
+
+export const Spinner = styled(ImSpinner9)`
+  animation: ${rotate} 800ms linear infinite;
 `;
