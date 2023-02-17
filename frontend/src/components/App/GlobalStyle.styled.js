@@ -6,6 +6,10 @@ export const GlobalStyle = createGlobalStyle`
     font-family: 'Apercu Arabic Pro', sans-serif ;
   }
 
+  h1{
+    margin: 0;
+  }
+
   textarea {
     resize: none;
   }

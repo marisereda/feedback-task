@@ -6,7 +6,7 @@ export const Input = styled.input`
   padding: 30px 46px;
   font-family: "Apercu Arabic Pro";
   font-size: 18px;
-  line-height: 2;
+  line-height: 1.8;
   color: #2d2d2d;
   background-color: white;
   border: 1px solid #dcdcdc;
