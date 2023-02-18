@@ -22,6 +22,10 @@ export const Input = styled.input`
   ::placeholder {
     color: #575757;
   }
+
+  @media (max-width: 640px) {
+    padding: 25px;
+  }
 `;
 
 export const Label = styled.label`

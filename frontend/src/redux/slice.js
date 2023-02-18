@@ -2,7 +2,7 @@ import { createSlice } from "@reduxjs/toolkit";
 import { sendFeedBack } from "./operations";
 
 const initialState = {
-  isLoading: false,
+  status: null,
   error: null,
 };
 
@@ -12,15 +12,15 @@ export const slice = createSlice({
   reducers: {},
   extraReducers: (builder) => {
     builder.addCase(sendFeedBack.fulfilled, (state) => {
-      state.isLoading = false;
+      state.status = "fulfilled";
       state.error = null;
     });
     builder.addCase(sendFeedBack.rejected, (state, action) => {
-      state.isLoading = false;
+      state.status = "rejected";
       state.error = action.payload ?? action.error.message;
     });
     builder.addCase(sendFeedBack.pending, (state) => {
-      state.isLoading = true;
+      state.status = "pending";
       state.error = null;
     });
   },

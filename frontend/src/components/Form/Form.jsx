@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 import { useDispatch, useSelector } from "react-redux";
 import toast from "react-hot-toast";
@@ -11,36 +11,43 @@ export const Form = () => {
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [message, setMessage] = useState("");
+
+  const status = useSelector((state) => state.status);
   const error = useSelector((state) => state.error);
-  const isLoading = useSelector((state) => state.isLoading);
   const dispatch = useDispatch();
 
-  const handleSubmit = async (e) => {
-    e.preventDefault();
-    try {
-      await dispatch(sendFeedBack({ name, email, message })).unwrap();
+  useEffect(() => {
+    if (status === "fulfilled") {
       toast.success("Your feedback was sent. Thank you!");
       setName("");
       setEmail("");
       setMessage("");
-    } catch (error) {
+    }
+    if (status === "rejected") {
       toast.error(`Your feedback wasn't sent.\n${error}.`);
     }
+  }, [status, error]);
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    dispatch(sendFeedBack({ name, email, message }));
   };
 
   return (
     <StyledForm autoComplete="off" onSubmit={handleSubmit}>
       <Box>
         <Field
+          type="text"
           name="name"
           placeholder="Your name"
+          minLength={4}
           required
           value={name}
           onChange={setName}
         />
         <Field
-          name="email"
           type="email"
+          name="email"
           placeholder="Your e-mail"
           required
           value={email}
@@ -49,8 +56,10 @@ export const Form = () => {
         <Field
           name="message"
           placeholder="Your message"
+          minLength={10}
           required
           multiline
+          rows={4}
           value={message}
           onChange={setMessage}
         />
@@ -58,7 +67,7 @@ export const Form = () => {
       <Button
         text="Send message"
         loadingText="Sending..."
-        isLoading={isLoading}
+        isLoading={status === "pending"}
       />
     </StyledForm>
   );
