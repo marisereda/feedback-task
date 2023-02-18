@@ -18,7 +18,7 @@ export const Form = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      await dispatch(sendFeedBack()).unwrap();
+      await dispatch(sendFeedBack({ name, email, message })).unwrap();
       toast.success("Your feedback was sent. Thank you!");
       setName("");
       setEmail("");

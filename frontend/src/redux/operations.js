@@ -3,7 +3,7 @@ import { createAsyncThunk } from "@reduxjs/toolkit";
 export const sendFeedBack = createAsyncThunk(
   "feedback/send",
   async (feedback, thunkApi) => {
-    const response = await fetch("https://dummyjson.com/comments/add", {
+    const response = await fetch("http://localhost:3000/feedbacks", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify(feedback),
