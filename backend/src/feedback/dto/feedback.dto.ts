@@ -1,6 +1,7 @@
 import { IsEmail, IsNotEmpty, MinLength } from 'class-validator';
 
 export class FeedbackDto {
+  @MinLength(4)
   @IsNotEmpty()
   name: string;
 
