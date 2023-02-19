@@ -3,28 +3,28 @@ import styled from "styled-components";
 export const Input = styled.input`
   display: block;
   width: 100%;
-  padding: 30px 46px;
-  font-family: "Apercu Arabic Pro";
-  font-size: 18px;
+  padding: ${(p) => `${p.theme.space(7.5)} ${p.theme.space(11.5)}`};
+
+  font-size: ${(p) => p.theme.fontSizes.input};
   line-height: 1.8;
-  color: #2d2d2d;
-  background-color: white;
-  border: 1px solid #dcdcdc;
-  border-radius: 10px;
+  color: ${(p) => p.theme.colors.input};
+  background-color: ${(p) => p.theme.colors.white};
+  border: ${(p) => p.theme.borders.input};
+  border-radius: ${(p) => p.theme.radii.input};
   outline: none;
 
   :focus {
-    border-color: #fad34f;
+    border-color: ${(p) => p.theme.colors.accent};
   }
   :not(:placeholder-shown):invalid {
-    border-color: #f472b7;
+    border-color: ${(p) => p.theme.colors.error};
   }
   ::placeholder {
-    color: #575757;
+    color: ${(p) => p.theme.colors.placeholder};
   }
 
-  @media (max-width: 640px) {
-    padding: 25px;
+  @media (max-width: ${(p) => p.theme.breakpoints.mobile}) {
+    padding: ${(p) => p.theme.space(6.5)};
   }
 `;
 

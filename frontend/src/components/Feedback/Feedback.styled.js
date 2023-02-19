@@ -1,7 +1,9 @@
 import styled from "styled-components";
 
 export const Section = styled.section`
-  padding: 180px 0 174px;
+  padding-top: ${(p) => p.theme.space(44)};
+  padding-bottom: ${(p) => p.theme.space(44)};
+
   background: url(images/yellow-smile-1.svg) no-repeat top 3% left 3%,
     url(images/yellow-smile-2.svg) no-repeat top 65% right 42%,
     url(images/pink-smile.svg) no-repeat top 88% right 33%,
@@ -17,8 +19,9 @@ export const Section = styled.section`
     url(images/circle.svg) no-repeat top 2% right 46%,
     url(images/map.jpg) no-repeat top 0% right 0%;
 
-  @media (max-width: 1024px) {
-    padding: 120px 0;
+  @media (max-width: ${(p) => p.theme.breakpoints.tablet}) {
+    padding-top: ${(p) => p.theme.space(30)};
+    padding-bottom: ${(p) => p.theme.space(30)};
     background: url(images/yellow-smile-1.svg) no-repeat top 3% left 3%,
       url(images/cloud-5.svg) no-repeat top 25% left -5% / 246px,
       url(images/cloud-15.svg) no-repeat top 52% left -7% / 218px,
@@ -28,25 +31,26 @@ export const Section = styled.section`
       url(images/map.jpg) no-repeat top 0% right 0%;
   }
 
-  @media (max-width: 640px) {
-    padding: 60px 0;
+  @media (max-width: ${(p) => p.theme.breakpoints.mobile}) {
+    padding-top: ${(p) => p.theme.space(15)};
+    padding-bottom: ${(p) => p.theme.space(15)};
     background: linear-gradient(
         to right,
         rgba(255, 255, 255, 0.2) 0%,
         rgba(255, 255, 255, 0.2) 100%
       ),
-      url(../../src/assets/images/map.jpg) no-repeat top 0% right 0% / 500px;
+      url(images/map.jpg) no-repeat top 0% right 0% / 500px;
   }
 `;
 
 export const Heading = styled.h1`
-  margin-bottom: 30px;
-  font-size: 40px;
+  margin-bottom: ${(p) => p.theme.space(7.5)};
+  font-size: ${(p) => p.theme.fontSizes.heading};
   line-height: 1.3;
-  color: #3e3e3e;
+  color: ${(p) => p.theme.colors.heading};
 
-  @media (max-width: 640px) {
-    font-size: 36px;
+  @media (max-width: ${(p) => p.theme.breakpoints.mobile}) {
+    font-size: ${(p) => p.theme.fontSizes.headingMobile};
     text-align: center;
   }
 `;

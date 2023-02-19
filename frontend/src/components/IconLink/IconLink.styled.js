@@ -2,14 +2,15 @@ import styled from "styled-components";
 
 export const Link = styled.a`
   display: inline-block;
-  padding: 8px;
-  color: #696969;
-  border-radius: 9999px;
+  padding: ${(p) => p.theme.space(2)};
+  color: ${(p) => p.theme.colors.link};
+  border-radius: ${(p) => p.theme.radii.full};
   cursor: pointer;
-  transition: background-color 200ms, color 200ms;
+  transition: background-color ${(p) => p.theme.animation.default},
+    color ${(p) => p.theme.animation.default};
 
   :hover {
-    color: #ffffff;
-    background-color: #fad34f;
+    color: ${(p) => p.theme.colors.white};
+    background-color: ${(p) => p.theme.colors.accent};
   }
 `;

@@ -7,26 +7,25 @@ export const StyledButton = styled.button`
   justify-content: center;
   gap: 1em;
 
-  min-width: 218px;
-  padding: 28px 52px;
+  min-width: ${(p) => p.theme.sizes.button};
+  padding: ${(p) => `${p.theme.space(7)} ${p.theme.space(13)}`};
 
-  font-family: "Apercu Arabic Pro";
-  font-size: 18px;
+  font-size: ${(p) => p.theme.fontSizes.button};
   line-height: 1;
-  color: white;
+  color: ${(p) => p.theme.colors.white};
 
-  background-color: #fad34f;
-  border-radius: 500px;
+  background-color: ${(p) => p.theme.colors.accent};
+  border-radius: ${(p) => p.theme.radii.full};
   border: none;
   box-shadow: none;
   cursor: pointer;
 
   transform: translateY(0);
-  transition: transform 200ms, box-shadow 200ms;
+  transition: transform ${(p) => p.theme.animation.default},
+    box-shadow ${(p) => p.theme.animation.default};
 
   :hover {
-    box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 6px -1px,
-      rgba(0, 0, 0, 0.06) 0px 2px 4px -1px;
+    box-shadow: ${(p) => p.theme.shadows.button};
     transform: translateY(-1px);
   }
 
@@ -41,7 +40,7 @@ export const StyledButton = styled.button`
     transform: translateY(0);
   }
 
-  @media (max-width: 640px) {
+  @media (max-width: ${(p) => p.theme.breakpoints.mobile}) {
     width: 100%;
   }
 `;

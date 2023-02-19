@@ -2,8 +2,7 @@ import { createGlobalStyle } from "styled-components";
 
 export const GlobalStyle = createGlobalStyle`
   body {
-    color: ${(props) => (props.whiteColor ? "white" : "black")};
-    font-family: 'Apercu Arabic Pro', sans-serif ;
+    font-family: ${(p) => p.theme.fonts.primary};
   }
 
   h1{

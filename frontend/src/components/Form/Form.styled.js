@@ -1,9 +1,9 @@
 import styled from "styled-components";
 
 export const StyledForm = styled.form`
-  max-width: 564px;
+  max-width: ${(p) => p.theme.sizes.form};
 
-  @media (max-width: 640px) {
+  @media (max-width: ${(p) => p.theme.breakpoints.mobile}) {
     max-width: none;
     text-align: center;
   }
@@ -12,6 +12,6 @@ export const StyledForm = styled.form`
 export const Box = styled.div`
   display: flex;
   flex-direction: column;
-  gap: 8px;
-  margin-bottom: 24px;
+  gap: ${(p) => p.theme.space(2)};
+  margin-bottom: ${(p) => p.theme.space(6)};
 `;

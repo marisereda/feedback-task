@@ -1,31 +1,38 @@
 import styled from "styled-components";
 
 export const StyledFooter = styled.footer`
-  padding: 72px 0 96px;
+  padding-top: ${(p) => p.theme.space(18)};
+  padding-bottom: ${(p) => p.theme.space(24)};
+
   background: url(images/pink-smile.svg) no-repeat top 40% left 2%,
     url(images/green-smile.svg) no-repeat top 0% right 10%,
-    url(images/yellow-smile-1.svg) no-repeat top 70% right -3%, #fafafa;
-  border-top: 1px solid #d8d8d8;
+    url(images/yellow-smile-1.svg) no-repeat top 70% right -3%,
+    ${(p) => p.theme.colors.footerBg};
+  border-top: ${(p) => p.theme.borders.footer};
 
-  @media (max-width: 1024px) {
-    padding: 60px 0;
+  @media (max-width: ${(p) => p.theme.breakpoints.tablet}) {
+    padding-top: ${(p) => p.theme.space(15)};
+    padding-bottom: ${(p) => p.theme.space(15)};
     background: url(images/pink-smile.svg) no-repeat top 15% left -10%,
-      url(images/green-smile.svg) no-repeat top 0% right 10%, #fafafa;
+      url(images/green-smile.svg) no-repeat top 0% right 10%,
+      ${(p) => p.theme.colors.footerBg};
   }
 
-  @media (max-width: 640px) {
-    padding: 40px 0;
+  @media (max-width: ${(p) => p.theme.breakpoints.mobile}) {
+    padding-top: ${(p) => p.theme.space(10)};
+    padding-bottom: ${(p) => p.theme.space(10)};
     background: url(images/pink-smile.svg) no-repeat top 15% left -10% /150px,
-      url(images/green-smile.svg) no-repeat top 0% right 10%, #fafafa;
+      url(images/green-smile.svg) no-repeat top 0% right 10%,
+      ${(p) => p.theme.colors.footerBg};
   }
 `;
 
 export const Box = styled.div`
   display: flex;
-  gap: 8px;
-  margin-left: 180px;
+  gap: ${(p) => p.theme.space(2)};
+  margin-left: ${(p) => p.theme.space(45)};
 
-  @media (max-width: 640px) {
+  @media (max-width: ${(p) => p.theme.breakpoints.mobile}) {
     justify-content: center;
     margin-left: 0;
   }
