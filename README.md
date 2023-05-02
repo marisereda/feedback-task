@@ -1,7 +1,6 @@
 # Feedback-task
 
-The project "Feedback-task" is a test task for a full-stack developer (Zenbit company).
-This is a full working feedback form with sending customer's feedbacks to the database.
+The project "Feedback-task" is a full working feedback form with sending customer's feedbacks to the database.
 
 The backend service is deployed on the free Render resource, so it is
 automatically spun down after 15 minutes of inactivity. When a new request for a free service comes in, Render spins it up again so it can process the request.
